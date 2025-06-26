@@ -8,18 +8,23 @@ import { styles } from './styles'
 import { Categories } from '@/components/categories'
 import { Link } from '@/components/link'
 import { Option } from '@/components/option'
+import { useState } from 'react'
+import { categories } from '@/utils/categories'
 
 export default function Index() {
+
+    const [category, setCategory] = useState<string>(categories[0].name)
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image source={require("@/assets/logo.png")} style={styles.logo} />
 
-                <TouchableOpacity activeOpacity={0.3} onPress={() => router.navigate("add")}>
+                <TouchableOpacity activeOpacity={0.3} onPress={() => router.navigate("/add")}>
                     <MaterialIcons name='add' size={32} color={colors.green[300]} />
                 </TouchableOpacity>
             </View>
-            <Categories />
+            <Categories onChange={setCategory} selected={category} />
 
             <FlatList
                 data={["1", "2", "3", "4"]}
