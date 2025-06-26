@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { colors } from "@/styles/colors";
 import { router } from "expo-router";
 import { Categories } from "@/components/categories";
+import { Input } from "@/components/input";
 
 export default function Add() {
     return (
@@ -22,6 +23,11 @@ export default function Add() {
                 Selecione uma categoria
             </Text>
             <Categories />
+
+            <View style={styles.form}>
+                <Input placeholder="Nome" />
+                <Input placeholder="URL" />
+            </View>
         </View>
     )
 }
